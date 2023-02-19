@@ -31,11 +31,11 @@ const FriendListWidget = ({ userId }) => {
     <WidgetWrapper>
       <Typography
         color={palette.neutral.dark}
-        variant="h5"
+        variant="h3"
         fontWeight="500"
         sx={{ mb: "1.5rem" }}
       >
-        Friend List
+        Connections
       </Typography>
       <Box display="flex" flexDirection="column" gap="1.5rem">
         {friends.map((friend) => (

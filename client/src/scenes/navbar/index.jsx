@@ -10,13 +10,11 @@ import {
 import LogoutIcon from "@mui/icons-material/Logout";
 import {
   Search,
-  Message,
   DarkMode,
   LightMode,
-  Notifications,
-  Help,
   Menu,
   Close,
+  Logout,
 } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { setMode, setLogout } from "state";
@@ -38,6 +36,7 @@ const Navbar = () => {
   const alt = theme.palette.background.alt;
 
   const fullName = `${user.firstName} ${user.lastName}`;
+  const firstName = `${user.firstName}`;
 
   return (
     <FlexBetween padding="1rem 6%" backgroundColor={alt}>
@@ -45,7 +44,7 @@ const Navbar = () => {
         <Typography
           fontWeight="bold"
           fontSize="clamp(1rem, 2rem, 2.25rem)"
-          color="primary"
+          color="deepgray"
           onClick={() => navigate("/home")}
           sx={{
             "&:hover": {
@@ -54,7 +53,7 @@ const Navbar = () => {
             },
           }}
         >
-          goofyoverflow
+          GOOFYOVERFLOW
         </Typography>
         {isNonMobileScreens && (
           <FlexBetween
@@ -63,7 +62,7 @@ const Navbar = () => {
             gap="3rem"
             padding="0.1rem 1.5rem"
           >
-            <InputBase placeholder="Search..." />
+            <InputBase placeholder="Search (placeholder)" />
             <IconButton>
               <Search />
             </IconButton>
@@ -74,20 +73,22 @@ const Navbar = () => {
       {/* DESKTOP NAV */}
       {isNonMobileScreens ? (
         <FlexBetween gap="2rem">
+          {/* DARK MODE ICON */}
           <IconButton onClick={() => dispatch(setMode())}>
             {theme.palette.mode === "dark" ? (
-              <DarkMode sx={{ fontSize: "25px" }} />
+              <DarkMode sx={{ fontSize: "25px" }} /> // Icon declaration
             ) : (
               <LightMode sx={{ color: dark, fontSize: "25px" }} />
             )}
           </IconButton>
-          <Message sx={{ fontSize: "25px" }} />
-          <Notifications sx={{ fontSize: "25px" }} />
-          <Help sx={{ fontSize: "25px" }} />
-          <LogoutIcon
-            sx={{ fontSize: "25px" }}
-            onClick={() => dispatch(setLogout())}
-          />
+          {/* LOGOUT ICON */}
+          <IconButton onClick={() => dispatch(setLogout())}>
+            {theme.palette.mode === "dark" ? (
+              <Logout sx={{ fontSize: "30px" }} /> // Icon declaration
+            ) : (
+              <Logout sx={{ color: dark, fontSize: "30px" }} />
+            )}
+          </IconButton>
         </FlexBetween>
       ) : (
         <IconButton
@@ -136,13 +137,6 @@ const Navbar = () => {
                 <LightMode sx={{ color: dark, fontSize: "25px" }} />
               )}
             </IconButton>
-            <Message sx={{ fontSize: "25px" }} />
-            <Notifications sx={{ fontSize: "25px" }} />
-            <Help sx={{ fontSize: "25px" }} />
-            <LogoutIcon
-              sx={{ fontSize: "25px" }}
-              onClick={() => dispatch(setLogout())}
-            />
           </FlexBetween>
         </Box>
       )}

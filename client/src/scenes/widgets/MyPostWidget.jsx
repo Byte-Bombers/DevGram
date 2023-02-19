@@ -62,7 +62,7 @@ const MyPostWidget = ({ picturePath }) => {
       <FlexBetween gap="1.5rem">
         <UserImage image={picturePath} />
         <InputBase
-          placeholder="What's on your mind..."
+          placeholder="'Sup?"
           onChange={(e) => setPost(e.target.value)}
           value={post}
           sx={{
@@ -127,11 +127,11 @@ const MyPostWidget = ({ picturePath }) => {
             color={mediumMain}
             sx={{ "&:hover": { cursor: "pointer", color: medium } }}
           >
-            Image
+            Attachment
           </Typography>
         </FlexBetween>
 
-        {isNonMobileScreens ? (
+        {/* {isNonMobileScreens ? (
           <>
             <FlexBetween gap="0.25rem">
               <GifBoxOutlined sx={{ color: mediumMain }} />
@@ -152,7 +152,7 @@ const MyPostWidget = ({ picturePath }) => {
           <FlexBetween gap="0.25rem">
             <MoreHorizOutlined sx={{ color: mediumMain }} />
           </FlexBetween>
-        )}
+        )} */}
 
         <Button
           disabled={!post}
