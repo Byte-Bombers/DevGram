@@ -22,7 +22,6 @@ const PostWidget = ({
   picturePath,
   userPicturePath,
   likes,
-  comments,
 }) => {
   const [isComments, setIsComments] = useState(false);
   const dispatch = useDispatch();
@@ -30,6 +29,7 @@ const PostWidget = ({
   const loggedInUserId = useSelector((state) => state.user._id);
   const isLiked = Boolean(likes[loggedInUserId]);
   const likeCount = Object.keys(likes).length;
+  const [comments, setComments] = useState([]);
 
   const { palette } = useTheme();
   const main = palette.neutral.main;
@@ -95,7 +95,7 @@ const PostWidget = ({
       </FlexBetween>
       {isComments && (
         <Box mt="0.5rem">
-          <CommentBox />
+          <CommentBox comments={comments} setComments={setComments} />
         </Box>
       )}
     </WidgetWrapper>
