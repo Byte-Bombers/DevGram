@@ -7,9 +7,6 @@ import {
   InputBase,
   useTheme,
   Button,
-  IconButton,
-  useMediaQuery,
-  TextareaAutosize,
 } from "@mui/material";
 
 const CommentWidget = ({ comments, setComments }) => {
