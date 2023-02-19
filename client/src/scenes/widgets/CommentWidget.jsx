@@ -1,10 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { Box, Typography, Divider, TextField, Button } from "@mui/material";
 import axios from "axios";
+import {
+  Box,
+  Divider,
+  Typography,
+  InputBase,
+  useTheme,
+  Button,
+  IconButton,
+  useMediaQuery,
+  TextareaAutosize,
+} from "@mui/material";
 
-const CommentBox = ({ comments, setComments }) => {
+const CommentWidget = ({ comments, setComments }) => {
   const [name, setName] = useState("");
   const [comment, setComment] = useState("");
+  const { palette } = useTheme();
   //  const [comments, setComments] = useState([]);
   const getAllComments = () => {
     axios
@@ -48,34 +59,52 @@ const CommentBox = ({ comments, setComments }) => {
 
   return (
     <Box sx={{ maxWidth: 600, mx: "auto" }}>
-      <Box sx={{ mb: "1rem" }}>
-        <Typography variant="h4">Leave a Comment</Typography>
-        <Divider />
-      </Box>
+      <Divider sx={{ mb: "1rem" }} />
       <form onSubmit={handleSubmit}>
         <Box sx={{ mb: "1rem" }}>
-          <TextField
+          <InputBase
             required
             label="Name"
+            placeholder="Name"
             fullWidth
             value={name}
             onChange={handleNameChange}
+            sx={{
+              width: "30%",
+              height: "10%",
+              backgroundColor: palette.neutral.light,
+              borderRadius: "2rem",
+              padding: ".5rem 2rem",
+              size: "0.7rem",
+            }}
           />
-        </Box>
-        <Box sx={{ mb: "1rem" }}>
-          <TextField
+          <InputBase
             required
             label="Comment"
+            placeholder="Comment"
             fullWidth
-            multiline
-            minRows={3}
             value={comment}
             onChange={handleCommentChange}
+            sx={{
+              width: "50%",
+              height: "10%",
+              backgroundColor: palette.neutral.light,
+              borderRadius: "2rem",
+              padding: ".5rem 2rem",
+              size: "0.7rem",
+              left: "0.3rem",
+            }}
           />
-        </Box>
-        <Box>
-          <Button variant="contained" onClick={handleSubmit}>
-            Submit
+          <Button
+            onClick={handleSubmit}
+            sx={{
+              color: palette.background.alt,
+              backgroundColor: palette.primary.main,
+              borderRadius: "2rem",
+              left: "1rem",
+            }}
+          >
+            Comment
           </Button>
         </Box>
       </form>
@@ -96,4 +125,4 @@ const CommentBox = ({ comments, setComments }) => {
   );
 };
 
-export default CommentBox;
+export default CommentWidget;

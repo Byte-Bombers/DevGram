@@ -16,6 +16,7 @@ import {
   Button,
   IconButton,
   useMediaQuery,
+  TextareaAutosize,
 } from "@mui/material";
 import FlexBetween from "components/FlexBetween";
 import Dropzone from "react-dropzone";
