@@ -1,4 +1,4 @@
-import { DoNotTouch, MoreHorizSharp } from "@mui/icons-material";
+import { PersonAddOutlined, PersonRemoveOutlined } from "@mui/icons-material";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -65,13 +65,13 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
         </Box>
       </FlexBetween>
       <IconButton
-        onClick={() => DoNotTouch()}
+        onClick={() => patchFriend()}
         sx={{ backgroundColor: primaryLight, p: "0.6rem" }}
       >
         {isFriend ? (
-          <MoreHorizSharp sx={{ color: primaryDark }} />
+          <PersonRemoveOutlined sx={{ color: primaryDark }} />
         ) : (
-          <MoreHorizSharp sx={{ color: primaryDark }} />
+          <PersonAddOutlined sx={{ color: primaryDark }} />
         )}
       </IconButton>
     </FlexBetween>
