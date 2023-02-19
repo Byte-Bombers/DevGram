@@ -137,6 +137,13 @@ const Navbar = () => {
                 <LightMode sx={{ color: dark, fontSize: "25px" }} />
               )}
             </IconButton>
+            <IconButton onClick={() => dispatch(setLogout())}>
+              {theme.palette.mode === "dark" ? (
+                <Logout sx={{ fontSize: "30px" }} /> // Icon declaration
+              ) : (
+                <Logout sx={{ color: dark, fontSize: "30px" }} />
+              )}
+            </IconButton>
           </FlexBetween>
         </Box>
       )}
