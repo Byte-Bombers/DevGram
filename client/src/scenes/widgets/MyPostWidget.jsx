@@ -2,6 +2,10 @@ import {
   EditOutlined,
   DeleteOutlined,
   ImageOutlined,
+  MicOutlined,
+  GifBoxOutlined,
+  AttachFileOutlined,
+  MoreHorizOutlined,
 } from "@mui/icons-material";
 import {
   Box,
@@ -11,6 +15,7 @@ import {
   useTheme,
   Button,
   IconButton,
+  useMediaQuery,
 } from "@mui/material";
 import FlexBetween from "components/FlexBetween";
 import Dropzone from "react-dropzone";
@@ -30,7 +35,7 @@ const MyPostWidget = ({ picturePath }) => {
   const token = useSelector((state) => state.token);
   const mediumMain = palette.neutral.mediumMain;
   const medium = palette.neutral.medium;
-
+  const isNonMobileScreens = useMediaQuery("(min-width:400px)");
   const handlePost = async () => {
     const formData = new FormData();
     formData.append("userId", _id);
