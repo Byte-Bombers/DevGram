@@ -71,3 +71,18 @@ export const likePost = async (req, res) => {
     res.status(404).json({ message: err.message });
   }
 };
+
+/* DELETE */
+export const deletePost = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deletedPost = await Post.findByIdAndDelete(id);
+    if (!deletedPost) {
+      throw new Error("Post not found");
+    }
+    req.app.get("io").emit("postDeleted", id); // emit event to all connected clients
+    res.status(200).json({ message: "Post deleted successfully" });
+  } catch (err) {
+    res.status(404).json({ message: err.message });
+  }
+};

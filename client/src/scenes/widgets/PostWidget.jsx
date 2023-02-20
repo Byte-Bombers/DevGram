@@ -2,6 +2,7 @@ import {
   ChatBubbleOutlineOutlined,
   FavoriteBorderOutlined,
   FavoriteOutlined,
+  Delete,
   ShareOutlined,
 } from "@mui/icons-material";
 import {
@@ -13,6 +14,7 @@ import {
   TextField,
   InputBase,
 } from "@mui/material";
+import axios from "axios";
 import FlexBetween from "components/FlexBetween";
 import Friend from "components/Friend";
 import WidgetWrapper from "components/WidgetWrapper";
@@ -56,6 +58,24 @@ const PostWidget = ({
     dispatch(setPost({ post: updatedPost }));
   };
 
+  const handleDeletePost = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      const response = await axios.delete(
+        `http://localhost:3001/posts/${postId}`,
+        config
+      );
+      console.log(response.data); // log the deleted post
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <WidgetWrapper m="2rem 0">
       <Friend
@@ -90,6 +110,9 @@ const PostWidget = ({
           </FlexBetween>
 
           <FlexBetween gap="0.3rem">
+            <IconButton onClick={() => handleDeletePost()}>
+              <Delete />
+            </IconButton>
             <IconButton onClick={() => setIsComments(!isComments)}>
               <ChatBubbleOutlineOutlined />
             </IconButton>
