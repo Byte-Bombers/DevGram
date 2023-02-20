@@ -1,4 +1,4 @@
-<h1> Welcome to <a href="https://x.com">DevGram</a>!</h1>
+<h1> Welcome to <a href="https://devgram.pages.dev/">DevGram</a>!</h1>
 
 <img alt="GitHub" src="https://img.shields.io/github/license/Byte-Bombers/DevGram?style=flat-square"> <img alt="GitHub" src="https://img.shields.io/badge/built%20on-MERN-re?style=flat-square"> 
 
