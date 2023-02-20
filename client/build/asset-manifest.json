@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b62ea404.css",
+    "main.js": "/static/js/main.c5b0fbcc.js",
+    "static/media/pratyaksh.jpg": "/static/media/pratyaksh.134ecbf42ec4631a4869.jpg",
+    "static/media/parwez.jpg": "/static/media/parwez.0d0a44a9f195d0967cd3.jpg",
+    "static/media/swapnil.jpeg": "/static/media/swapnil.ae9051b7b9cd0b4d99ef.jpeg",
+    "index.html": "/index.html",
+    "main.b62ea404.css.map": "/static/css/main.b62ea404.css.map",
+    "main.c5b0fbcc.js.map": "/static/js/main.c5b0fbcc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b62ea404.css",
+    "static/js/main.c5b0fbcc.js"
+  ]
+}
