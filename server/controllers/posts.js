@@ -1,5 +1,6 @@
 import Post from "../models/Post.js";
 import User from "../models/User.js";
+//import { Server } from "socket.io";
 
 /* CREATE */
 export const createPost = async (req, res) => {
@@ -30,6 +31,7 @@ export const createPost = async (req, res) => {
 export const getFeedPosts = async (req, res) => {
   try {
     const post = await Post.find();
+    console.log(post);
     res.status(200).json(post);
   } catch (err) {
     res.status(404).json({ message: err.message });
@@ -75,13 +77,20 @@ export const likePost = async (req, res) => {
 /* DELETE */
 export const deletePost = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { id, userId } = req.params;
+    const postToBeDeleted = await Post.findById(id);
+    if (postToBeDeleted.userId !== userId) {
+      res.status(404).json({ message: "You cant delete this post" });
+      return;
+    }
     const deletedPost = await Post.findByIdAndDelete(id);
     if (!deletedPost) {
       throw new Error("Post not found");
     }
-    req.app.get("io").emit("postDeleted", id); // emit event to all connected clients
-    res.status(200).json({ message: "Post deleted successfully" });
+    const post = await Post.find();
+    console.log(post);
+    // req.app.get("io").emit("postDeleted", id);  emit event to all connected clients
+    res.status(200).json({ message: "Post deleted successfully", posts: post });
   } catch (err) {
     res.status(404).json({ message: err.message });
   }

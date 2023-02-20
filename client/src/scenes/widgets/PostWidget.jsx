@@ -21,7 +21,7 @@ import WidgetWrapper from "components/WidgetWrapper";
 import CommentWidget from "./CommentWidget";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setPost } from "state";
+import { setPost, setPosts } from "state";
 
 const PostWidget = ({
   postId,
@@ -33,7 +33,7 @@ const PostWidget = ({
   userPicturePath,
   likes,
 }) => {
-  const [isComments, setIsComments] = useState(false);
+  const [isComments, setIsComments] = useState(true);
   const dispatch = useDispatch();
   const token = useSelector((state) => state.token);
   const loggedInUserId = useSelector((state) => state.user._id);
@@ -60,17 +60,17 @@ const PostWidget = ({
 
   const handleDeletePost = async () => {
     try {
-      const token = localStorage.getItem("token");
       const config = {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       };
       const response = await axios.delete(
-        `http://localhost:3001/posts/${postId}`,
+        `http://localhost:3001/posts/${postId}/${loggedInUserId}`,
         config
       );
-      console.log(response.data); // log the deleted post
+      dispatch(setPosts({ posts: response.data.posts }));
+      console.log(response.data.posts);
     } catch (err) {
       console.error(err);
     }
