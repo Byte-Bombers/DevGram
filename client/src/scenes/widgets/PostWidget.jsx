@@ -77,7 +77,7 @@ const PostWidget = ({
   };
 
   return (
-    <WidgetWrapper m="2rem 0">
+    <WidgetWrapper m="2rem 0" data-postId={postId}>
       <Friend
         friendId={postUserId}
         name={name}
@@ -122,7 +122,11 @@ const PostWidget = ({
       </FlexBetween>
       {isComments && (
         <Box mt="0.5rem">
-          <CommentWidget comments={comments} setComments={setComments} />
+          <CommentWidget
+            comments={comments}
+            setComments={setComments}
+            postId={postId}
+          />
         </Box>
       )}
     </WidgetWrapper>

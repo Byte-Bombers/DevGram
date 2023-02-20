@@ -8,15 +8,16 @@ import {
   useTheme,
   Button,
 } from "@mui/material";
+import { ChatBubbleOutlineOutlined } from "@mui/icons-material";
 
-const CommentWidget = ({ comments, setComments }) => {
+const CommentWidget = ({ comments, setComments, postId }) => {
   const [name, setName] = useState("");
   const [comment, setComment] = useState("");
   const { palette } = useTheme();
   //  const [comments, setComments] = useState([]);
   const getAllComments = () => {
     axios
-      .get(process.env.REACT_APP_SERVER_URL + "/api/comments")
+      .get(`${process.env.REACT_APP_SERVER_URL}/api/comments?postId=${postId}`)
       .then((response) => {
         setComments(response.data);
       })
@@ -42,12 +43,14 @@ const CommentWidget = ({ comments, setComments }) => {
     const data = {
       name: name,
       comment: comment,
+      postId: postId,
     };
     axios
       .post(process.env.REACT_APP_SERVER_URL + "/api/comments", data)
       .then((response) => {
         setComments([...comments, response.data]);
         setName("");
+        setComment("");
       })
       .catch((error) => {
         console.log(error);
