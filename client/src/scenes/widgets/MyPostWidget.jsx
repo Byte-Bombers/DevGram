@@ -2,10 +2,6 @@ import {
   EditOutlined,
   DeleteOutlined,
   ImageOutlined,
-  MicOutlined,
-  GifBoxOutlined,
-  AttachFileOutlined,
-  MoreHorizOutlined,
 } from "@mui/icons-material";
 import {
   Box,
@@ -35,7 +31,7 @@ const MyPostWidget = ({ picturePath }) => {
   const token = useSelector((state) => state.token);
   const mediumMain = palette.neutral.mediumMain;
   const medium = palette.neutral.medium;
-  const isNonMobileScreens = useMediaQuery("(min-width:400px)");
+  // const isNonMobileScreens = useMediaQuery("(min-width:400px)");
   const handlePost = async () => {
     const formData = new FormData();
     formData.append("userId", _id);
@@ -130,7 +126,7 @@ const MyPostWidget = ({ picturePath }) => {
           </Typography>
         </FlexBetween>
 
-        {isNonMobileScreens ? (
+        {/* {isNonMobileScreens ? (
           <>
             <FlexBetween gap="0.25rem">
               <GifBoxOutlined sx={{ color: mediumMain }} />
@@ -151,7 +147,7 @@ const MyPostWidget = ({ picturePath }) => {
           <FlexBetween gap="0.25rem">
             <MoreHorizOutlined sx={{ color: mediumMain }} />
           </FlexBetween>
-        )}
+        )} */}
 
         <Button
           disabled={!post}
