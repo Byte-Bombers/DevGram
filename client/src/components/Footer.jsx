@@ -2,6 +2,7 @@ import React from "react";
 import swapnil from "../assets/swapnil.jpeg";
 import parwez from "../assets/parwez.jpg";
 import pratyaksh from "../assets/pratyaksh.jpg";
+import "./Footer.css";
 
 const Footer = () => {
   const imgSize = 200;
@@ -26,16 +27,42 @@ const Footer = () => {
     >
       <h3>Made with ❤️ </h3>
       <p>We are team DevGram</p>
-      <div style={{ display: "flex" }}>
-        <div style={{ display: "flex", flexDirection: "column" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
           <img src={swapnil} alt="Team member 1" style={imgStyle} />
           <p>Swapnil Sarkar</p>
         </div>
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
           <img src={parwez} alt="Team member 2" style={imgStyle} />
           <p>Shaikh Parwez Hasim</p>
         </div>
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
           <img src={pratyaksh} alt="Team member 3" style={imgStyle} />
           <p>Pratyaksh Mehrotra</p>
         </div>
