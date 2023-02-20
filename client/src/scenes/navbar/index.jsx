@@ -27,10 +27,11 @@ const Navbar = () => {
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
 
   const theme = useTheme();
-  const neutralLight = theme.palette.neutral.light;
+  // const neutralLight = theme.palette.neutral.light;
   const dark = theme.palette.neutral.dark;
   const background = theme.palette.background.default;
-  const primaryLight = theme.palette.primary.light;
+  const primaryLight = theme.palette.primary.dark;
+  const hoverEffect = theme.palette.primary.dark;
   const alt = theme.palette.background.alt;
 
   return (
@@ -39,7 +40,7 @@ const Navbar = () => {
         <Typography
           fontWeight="bold"
           fontSize="clamp(1rem, 2rem, 2.25rem)"
-          color="deepgray"
+          color="{hoverEffect}"
           onClick={() => navigate("/home")}
           sx={{
             "&:hover": {
@@ -50,7 +51,7 @@ const Navbar = () => {
         >
           DevGram
         </Typography>
-        {isNonMobileScreens && (
+        {/* {isNonMobileScreens && (
           <FlexBetween
             backgroundColor={neutralLight}
             borderRadius="9px"
@@ -62,7 +63,7 @@ const Navbar = () => {
               <Search />
             </IconButton>
           </FlexBetween>
-        )}
+        )} */}
       </FlexBetween>
 
       {/* DESKTOP NAV */}
