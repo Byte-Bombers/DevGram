@@ -14,5 +14,5 @@ A Convenient place for programmers to socialise and connect with peers
 
 #### and much more...
 
-Made with ❤️ By [Swapnil Sarkar](https://www.linkedin.com/in/swapnil-sarkar1202/), [Pratyaksh Mehrohtra](https://www.linkedin.com/in/pratyakshm/)
+Made with ❤️ By [Swapnil Sarkar](https://www.linkedin.com/in/swapnil-sarkar1202/), [Pratyaksh Mehrotra](https://www.linkedin.com/in/pratyakshm/)
 and [Shaikh Parwez](https://www.linkedin.com/in/shaikh-parwez-hasim-23681a10a/)
