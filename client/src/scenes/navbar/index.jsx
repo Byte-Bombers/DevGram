@@ -48,7 +48,7 @@ const Navbar = () => {
             },
           }}
         >
-          GOOFYOVERFLOW
+          DevGram
         </Typography>
         {isNonMobileScreens && (
           <FlexBetween
